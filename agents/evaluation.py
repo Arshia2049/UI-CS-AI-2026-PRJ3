@@ -117,8 +117,8 @@ def evaluate(game, player):
                 pos = pos - weights[r][c]
 
             is_corner = False
-            for corner in corners:
-                if corner[0] == r and corner[1] == c:
+            for corner_sq in corners:
+                if corner_sq[0] == r and corner_sq[1] == c:
                     is_corner = True
             if is_corner == True:
                 if cell == player:
@@ -142,9 +142,9 @@ def evaluate(game, player):
 
     my_close = 0
     opp_close = 0
-    for corner in corners:
-        cr = corner[0]
-        cc = corner[1]
+    for corner_sq in corners:
+        cr = corner_sq[0]
+        cc = corner_sq[1]
         if board[cr][cc] != EMPTY:
             continue
         for dr in [-1, 0, 1]:
