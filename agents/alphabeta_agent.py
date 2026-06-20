@@ -44,12 +44,12 @@ class AlphaBetaAgent:
 
                 v2, _ = self.alphabeta(g, depth-1, alpha, beta, False, root_player)
 
-                if v2 > v:
+                if v2 > v:     # به عنوان نود پدر یا فرزند از این استفاده می کند
                     v = v2
                     choice = move
                     alpha = max(alpha,v)
 
-                if v >= beta:
+                if v >= beta:      # به عنوان نود فرزند از این استفاده می کند تا هرس شود
                     break
 
             return v,choice
@@ -65,13 +65,13 @@ class AlphaBetaAgent:
 
                 v2, _ = self.alphabeta(g, depth-1, alpha, beta, True, root_player)
 
-                if v2 < v:
+                if v2 < v:             # به عنوان نود پدر یا فرزند از این استفاده می کند
                     v = v2
                     choice = move
                     beta = min(beta,v)
 
-                if v <= alpha:
-                    return v, choice
+                if v <= alpha:              # به عنوان نود فرزند از این استفاده می کند تا هرس شود
+                    break
                 
             return v,choice     
 
